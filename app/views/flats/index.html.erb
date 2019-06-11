@@ -1,11 +1,16 @@
 <h1>Flats</h1>
 
-<div>
-    <% @flats.each do |flat| %>
-    <p><%= flat.title %></p>
-    <p><%= flat.description%></p>
-    <%= link_to "View Flat", flat_path(flat) %>
-    <hr>
+<div class="card-trip">
+    <img src="">
+      <div class="card-trip-infos">
+        <div>
+        <% @flats.each do |flat| %>
+        <h2><%= flat.title %></h2>
+        <p><%= flat.description%></p>
+        <p><%= flat.price %>
+        <%= link_to "View Flat", flat_path(flat) %>
+      <hr>
     <% end %>
+  </div>
+  </div>
 </div>
-
