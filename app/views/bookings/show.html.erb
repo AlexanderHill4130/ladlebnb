@@ -1,3 +1,9 @@
 <h1>Show Bookings Page</h1>
 
 <%= @booking.check_out  %>
+
+<h1>reviews</h1>
+<% @reviews.each do |review| %>
+<%= review.content %>
+<%= review.rating %>
+<% end %>
