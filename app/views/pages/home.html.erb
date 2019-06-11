@@ -1,16 +1,14 @@
 <h1>Welcome to LadleBnB</h1>
 
-<div class="card-trip">
-    <img src="">
-      <div class="card-trip-infos">
-        <div>
-        <% @flats.each do |flat| %>
+<div class="container">
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="card">
         <h2><%= flat.title %></h2>
         <p><%= flat.description%></p>
-        <p><%= flat.price %>
+        <p><%= flat.price %></p>
         <%= link_to "View Flat", flat_path(flat) %>
-      <hr>
+      </div>
     <% end %>
-  </div>
   </div>
 </div>
