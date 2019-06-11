@@ -8,6 +8,24 @@
     <%= cl_image_tag(flat.photo,
       width: 400, height: 300, crop: :fill) %>
 
+  <% if flat.bookings.empty? %>
+    <p>Be the first to let a review</p>
+  <% else %>
+    <ul class="list-group">
+      <% flat.bookings.last.reviews.each do |review| %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span class="badge badge-primary badge-pill">
+            <% counter = 0 %>
+            <% 5.times do %>
+              <i class="fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+              <% counter += 1 %>
+            <% end %>
+          </span>
+          <%= review.content %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
     <%= link_to "View Flat", flat_path(flat) %>
     <hr>
     <% end %>
