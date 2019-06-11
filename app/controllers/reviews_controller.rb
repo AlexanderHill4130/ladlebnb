@@ -1,6 +1,11 @@
 class ReviewsController < ApplicationController
+
+  def new
+    @review = Review.new
+  end
+
   def create
-    @user = User.find(params[:user_id])
+    @booking = Booking.find(params[:booking_id])
     @review = Review.new(review_params)
     @review.user = @user
     if @review.save
@@ -11,9 +16,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def new
-    @review = Review.new
-  end
 
   private
 
