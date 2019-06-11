@@ -1,0 +1,7 @@
+
+  <%= simple_form_for [@flat, @booking] do |f| %>
+     <%= f.input :check_in %>
+     <%= f.input :check_out %>
+     <%= f.input :guests_nr %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+    <% end %>

@@ -2,3 +2,22 @@
 <h3><%= @flat.description %></h3>
 
 <%= link_to "Back to all flats", flats_path %>
+
+<h2>New Booking</h2>
+
+<div class="container mt-4 pt-4">
+  <h2 class="m-4 pt-4">Create a new Booking</h2>
+
+  <%= simple_form_for [@flat, @booking] do |f| %>
+     <%= f.input :check_in %>
+     <%= f.input :check_out %>
+     <%= f.input :guests_nr %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+    <% end %>
+</div>
+
+<!-- flat_booking_path -->
+
+
+
+
