@@ -30,4 +30,5 @@ group :development, :test do
   gem 'devise'
   gem 'omniauth-facebook'
   gem 'geocoder'
+  gem 'dotenv-rails', groups: [:development, :test]
 end
