@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to user_path(@user)
     else
-      @dose = Booking.new
+      @user = Booking.new
       render "users/show"
     end
   end
