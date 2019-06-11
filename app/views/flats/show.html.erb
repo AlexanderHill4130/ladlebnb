@@ -1,2 +1,4 @@
-<h1>Flats#show</h1>
-<p>Find me in app/views/flats/show.html.erb</p>
+<h1><%= @flat.title %></h1>
+<h3><%= @flat.description %></h3>
+
+<%= link_to "Back to all flats", flats_path %>
