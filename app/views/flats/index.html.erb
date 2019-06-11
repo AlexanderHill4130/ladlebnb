@@ -2,9 +2,10 @@
 
 <div>
     <% @flats.each do |flat| %>
-    <p><%= flat.title %></p>
-    <p><%= flat.description%></p>
-    <%= cl_image_tag("THE_IMAGE_ID_FROM_LIBRARY",
+    <h2><%= flat.title %></h2>
+    <p><em><%= flat.description%></em></p>
+
+    <%= cl_image_tag(flat.photo,
       width: 400, height: 300, crop: :fill) %>
 
     <%= link_to "View Flat", flat_path(flat) %>
