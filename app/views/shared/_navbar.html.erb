@@ -1,13 +1,40 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= image_tag "logo.png" %>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
+<!-- search box stuff -->
+<nav class="navbar navbar-light bg-white mr-auto">
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Location" aria-label="Location">
 
+      <%= simple_form_for :search, method: "get" do |f| %>
+      <%= f.input :check_in, as: :string, required: false, input_html: {class: "datepicker", style: 'width: 120px; margin: 0 8px;' } %>
+      <%= f.input :check_out, as: :string, required: false, input_html: {class: "datepicker", style: 'width: 120px; margin: 0 8px;'} %>
+   <!--    <%= f.button :submit, "Go", class: "btn btn-primary" %> -->
+    <% end %>
+
+
+    <select name="guests" id="select-guests" class="form-control input-sm" style="margin: 0 20px 0 8px; width: 120px;">
+      <option value="1">1 person</option>
+      <option value="2">2 people</option>
+      <option value="3">3 people</option>
+      <option value="4">4 people</option>
+      <option value="5">5 people</option>
+      <option value="6">6 people</option>
+      <option value="7">7 people</option>
+      <option value="8">8 people</option>
+      </select>
+
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
+
+<!--  -->
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
@@ -17,8 +44,8 @@
         <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" %>
         </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <li class="nav-item dropdown mr-2">
+          <%= image_tag "blank.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Action", "#", class: "dropdown-item" %>
             <%= link_to "Another action", "#", class: "dropdown-item" %>
@@ -33,3 +60,4 @@
     </ul>
   </div>
 </div>
+
