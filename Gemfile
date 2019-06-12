@@ -35,5 +35,8 @@ group :development, :test do
   gem 'dotenv-rails', groups: [:development, :test]
 
 
+gem 'autoprefixer-rails'
+gem 'font-awesome-sass', '~> 5.6.1'
+gem 'simple_form'
 
 end
