@@ -16,25 +16,9 @@
     <%= render 'shared/navbar' %>
 
     <%= render 'shared/flashes' %>
-<div class="home-banner">
-  <h1>Le Wagon</h1>
-</div>
-
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <%= "Lorem ipsum dolor sit amet, consectetur adipisicing elit " * 100 %>
-    </div>
-  </div>
-</div>
 
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>
-<%= javascript_include_tag 'application' %>
-
-  <%= javascript_include_tag "application" %> <!-- from app/assets/javascripts/application.js -->
-  <%= javascript_pack_tag "application" %>    <!-- from app/javascript/packs/application.js -->
-
