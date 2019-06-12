@@ -1,7 +1,15 @@
+<div class="container display-flex justify-content-center w-100">
+  <div class="welcome m-5">
+<h1>Welcome <%= current_user.first_name%>!</h1>
+<h3>Here you can find your bookings </h3>
+</div>
+
 <% @user_bookings.each do |booking| %>
+<div class="booking-specs m-5">
 <p><strong> Check-in: </strong><%= booking.check_in %>
 - <strong> Check-out: </strong><%= booking.check_out %></p>
 <p> <strong> Status: </strong><%= booking.status %></p>
 <p>--------------------</p>
+</div>
 <% end %>
-
+</div>

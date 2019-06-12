@@ -22,6 +22,19 @@ class BookingsController < ApplicationController
     @reviews = @booking.reviews
   end
 
+  def confirm_booking
+    @booking = Booking.find(params[:id])
+    @booking.status = "confirmed"
+  end
+  def deny_booking
+    @booking = Booking.find(params[:id])
+    @booking.status = "denied"
+    #need to delete the booking
+  end
+  def pending_booking
+    @booking = Booking.find(params[:id])
+    @booking.status = "pending"
+  end
   private
 
   def flat_params

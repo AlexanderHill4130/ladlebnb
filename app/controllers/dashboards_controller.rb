@@ -6,4 +6,5 @@ class DashboardsController < ApplicationController
       @received_bookings = current_user.get_user_received_bookings
     end
   end
+
 end
