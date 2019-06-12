@@ -1,1 +1,7 @@
-<h1><%= @bookings %></h1>
+<% @user_bookings.each do |booking| %>
+<p><strong> Check-in: </strong><%= booking.check_in %>
+- <strong> Check-out: </strong><%= booking.check_out %></p>
+<p> <strong> Status: </strong><%= booking.status %></p>
+<p>--------------------</p>
+<% end %>
+
