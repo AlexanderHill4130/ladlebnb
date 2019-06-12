@@ -8,7 +8,8 @@
 <div class="cards-container">
 <% @flats.each do |flat| %>
 <div class="card-trip">
-  <img src="https://picsum.photos/id/299/5498/3615">
+  <%= cl_image_tag(flat.photo,
+      width: 400, height: 300, crop: :fill) %>
   <div class="card-trip-infos">
     <div>
       <h2><%= flat.title %></h2>
