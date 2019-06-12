@@ -10,7 +10,7 @@
 <!-- search box stuff -->
 <nav class="navbar navbar-light bg-white mr-auto pl-0">
   <form class="form-inline ">
-    <input class="form-control-sm mr-sm-2" type="search" placeholder="Location" aria-label="Location">
+    <input class="form-control-sm mr-sm-2" type="search" placeholder="Location" aria-label="Location" id="location-search">
 
       <%= simple_form_for :search, method: "get" do |f| %>
       <%= f.input :check_in, label: false, placeholder: 'Check in', as: :string, required: false, input_html: {class: "datepicker form-control-sm", style: "width: 120px; margin: 0 8px;"} %>
