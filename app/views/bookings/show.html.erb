@@ -1,18 +1,45 @@
-<h1>Show Bookings Page</h1>
+<div class="container">
+  <h1>Show Bookings Page</h1>
 
-<%= @booking.check_out  %>
+  <div class="summary-container">
+  <h3><%= @booking.flat.title  %></h3>
+    <p><%= @booking.flat.description  %></p>
+    <p>Start date <%= @booking.check_in %></p>
+    <p>End date <%= @booking.check_out %></p>
+    <p>Booked by: <%= @booking.user.first_name %> <%= @booking.user.last_name %></p>
+    <p><%= @booking.user.email %></p>
+
+    <% @days_booked = (@booking.check_out - @booking.check_in).to_i %>
+    <p>Days booked: <%= @days_booked %></p>
+
+    <p>Guests: <%= @booking.guests_nr %></p>
+    <p>Total Price: € <%= (@booking.flat.price) * @days_booked %></p>
+
+  </div>
+
+  <div class="photo-container">
+    <p>Photo:</p>
+    <div class="card-trip">
+      <%= cl_image_tag(@booking.flat.photo,
+          width: 400, height: 300, crop: :fill) %>
+    </div>
+  </div>
+
+  <div class="review-container">
+    <h3> create a review</h3>
+    <%= simple_form_for [@booking, @review], url: booking_reviews_path(@booking), method: :post do |f| %>
+      <%= f.input :rating, collection: 1..5 %>
+      <%= f.input :content %>
+      <%= f.submit class: "btn btn-primary"%>
+    <% end %>
 
 
-<h3> create a review</h3>
-<%= simple_form_for [@booking, @review], url: booking_reviews_path(@booking), method: :post do |f| %>
-  <%= f.input :rating, collection: 1..5 %>
-  <%= f.input :content %>
-  <%= f.submit class: "btn btn-primary"%>
-<% end %>
+    <h1>reviews</h1>
+    <% @reviews.each do |review| %>
+    <%= review.content %>
+    <%= review.rating %>
+    <% end %>
+  </div>
 
 
-<h1>reviews</h1>
-<% @reviews.each do |review| %>
-<%= review.content %>
-<%= review.rating %>
-<% end %>
+</div>
