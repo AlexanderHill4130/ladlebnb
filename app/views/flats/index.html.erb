@@ -1,10 +1,10 @@
 <h5>Search Results</h5>
 
-
 <div class="cards-container">
 <% @flats.each do |flat| %>
-<div class="card-trip">
-  <img src="https://picsum.photos/id/299/5498/3615">
+<div class="card-trip"> 
+  <%= cl_image_tag(flat.photo,
+      width: 400, height: 300, crop: :fill) %>
   <div class="card-trip-infos">
     <div>
       <h2><%= flat.title %></h2>
@@ -17,3 +17,10 @@
 <% end %>
 </div>
 
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
