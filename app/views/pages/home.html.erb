@@ -1,3 +1,23 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner">
+  <div class="banner-text">
+    <h1>LadleBnb</h1>
+    <p>Find your perfect place to stay</p>
+  </div>
+</div>
 
+<div class="cards-container">
+<% @flats.each do |flat| %>
+<div class="card-trip">
+  <%= cl_image_tag(flat.photo,
+      width: 400, height: 300, crop: :fill) %>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= flat.title %></h2>
+      <p><%= flat.address %></p>
+      <%= link_to "View Details", flat_path(flat) %>
+    </div>
+    <h2 class="card-trip-pricing">€<%= flat.price %>/night</h2>
+  </div>
+</div>
+<% end %>
+</div>
