@@ -4,11 +4,17 @@
     <% @flats.each do |flat| %>
     <p><%= flat.title %></p>
     <p><%= flat.description%></p>
-    <%= cl_image_tag("THE_IMAGE_ID_FROM_LIBRARY",
+    <%= cl_image_tag(flat.photo,
       width: 400, height: 300, crop: :fill) %>
 
     <%= link_to "View Flat", flat_path(flat) %>
     <hr>
     <% end %>
 </div>
-
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
