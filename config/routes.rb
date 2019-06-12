@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :bookings, only: [:show] do
   resources  :reviews, only: [:new, :create]
   end
+ resources :dashboards, only: [:index]
+
 end
