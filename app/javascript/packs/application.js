@@ -1,5 +1,7 @@
 import "bootstrap";
-import "../plugins/flatpickr"
+import "../plugins/flatpickr";
+import 'mapbox-gl/dist/mapbox-gl.css';
+import { initMapbox } from '../plugins/init_mapbox';
 
-console.log("Hello from app/javascript/packs/application.js!");
+initMapbox();
 

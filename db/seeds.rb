@@ -29,10 +29,14 @@ puts 'Creating 10 fake flats...'
     title:    Faker::Coffee.blend_name,
     description: Faker::Coffee.notes,
     address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+    latitude: Faker::Address.latitude,
+    longitude: Faker::Address.longitude,
     price:  rand(25..50),
     guests_nr: rand(1..4),
     user: User.all.sample
   )
+  flat.remote_photo_url = Faker::Avatar.image
+
   flat.save!
 end
 puts 'Finished!'

@@ -15,6 +15,11 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'faker'
+gem 'devise'
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
+gem 'omniauth-facebook'
+gem 'geocoder'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -27,12 +32,8 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
-  gem 'devise'
-  gem 'omniauth-facebook'
-  gem 'geocoder'
   gem 'dotenv-rails', groups: [:development, :test]
-  gem 'cloudinary', '~> 1.9.1'
-  gem 'carrierwave', '~> 1.2'
+
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'

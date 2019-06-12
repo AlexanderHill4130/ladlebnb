@@ -8,18 +8,19 @@
   </button>
 
 <!-- search box stuff -->
-<nav class="navbar navbar-light bg-white mr-auto">
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Location" aria-label="Location">
+<nav class="navbar navbar-light bg-white mr-auto pl-0">
+  <form class="form-inline ">
+    <input class="form-control-sm mr-sm-2" type="search" placeholder="Location" aria-label="Location">
 
       <%= simple_form_for :search, method: "get" do |f| %>
-      <%= f.input :check_in, as: :string, required: false, input_html: {class: "datepicker", style: 'width: 120px; margin: 0 8px;' } %>
-      <%= f.input :check_out, as: :string, required: false, input_html: {class: "datepicker", style: 'width: 120px; margin: 0 8px;'} %>
+      <%= f.input :check_in, label: false, placeholder: 'Check in', as: :string, required: false, input_html: {class: "datepicker form-control-sm", style: "width: 120px; margin: 0 8px;"} %>
+      <%= f.input :check_out, label: false,  placeholder: 'Check out', as: :string, required: false, input_html: {class: "datepicker form-control-sm", style: 'width: 120px; margin: 0 8px;'} %>
+
    <!--    <%= f.button :submit, "Go", class: "btn btn-primary" %> -->
     <% end %>
 
 
-    <select name="guests" id="select-guests" class="form-control input-sm" style="margin: 0 20px 0 8px; width: 120px;">
+    <select name="guests" id="select-guests" class="form-control-sm input-sm" style="margin: 0 20px 0 8px; width: 120px;">
       <option value="1">1 person</option>
       <option value="2">2 people</option>
       <option value="3">3 people</option>
@@ -30,7 +31,9 @@
       <option value="8">8 people</option>
       </select>
 
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  <%= link_to "Search", flats_path, class: "btn btn-outline-success btn-sm my-2 my-sm-0" %>
+
+
   </form>
 </nav>
 
@@ -39,16 +42,15 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
+          <%= link_to "Become a Host", new_flat_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
+        <li class="nav-item mr-2">
+          <%= link_to "Dashboard", "#", class: "nav-link" %>
         </li>
-        <li class="nav-item dropdown mr-2">
+        <li class="nav-item dropdown mr-3 pr-2">
           <%= image_tag "blank.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%= link_to "Home", root_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
