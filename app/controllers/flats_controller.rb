@@ -1,7 +1,12 @@
 class FlatsController < ApplicationController
-    def new
+
+  def home
+    @flats = Flat.all
+  end
+
+  def new
     @flat = Flat.new
-    end
+  end
 
   def index
     @flats = Flat.where.not(latitude: nil, longitude: nil)
