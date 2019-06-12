@@ -2,7 +2,7 @@
 
 <div class="cards-container">
 <% @flats.each do |flat| %>
-<div class="card-trip"> 
+<div class="card-trip">
   <%= cl_image_tag(flat.photo,
       width: 400, height: 300, crop: :fill) %>
   <div class="card-trip-infos">
