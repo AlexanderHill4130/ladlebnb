@@ -1,3 +1,18 @@
 <h1>Show Bookings Page</h1>
 
 <%= @booking.check_out  %>
+
+
+<h3> create a review</h3>
+<%= simple_form_for [@booking, @review], url: booking_reviews_path(@booking), method: :post do |f| %>
+  <%= f.input :rating, collection: 1..5 %>
+  <%= f.input :content %>
+  <%= f.submit class: "btn btn-primary"%>
+<% end %>
+
+
+<h1>reviews</h1>
+<% @reviews.each do |review| %>
+<%= review.content %>
+<%= review.rating %>
+<% end %>
