@@ -1,14 +1,20 @@
-<h1>Welcome to LadleBnB</h1>
-
-<div class="container">
-  <div class="row">
-    <% @flats.each do |flat| %>
-      <div class="card">
-        <h2><%= flat.title %></h2>
-        <p><%= flat.description%></p>
-        <p><%= flat.price %></p>
-        <%= link_to "View Flat", flat_path(flat) %>
-      </div>
-    <% end %>
+<div class="banner">
+  <div class="title">
+    <h1>LadleBnB</h1>
+    <p>Find your perfect place to stay</p>
   </div>
 </div>
+
+<% @flats.each do |flat| %>
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= flat.title %></h2>
+      <p>Max Guests: <%= flat.guests_nr %></p>
+      <%= link_to "View Flat", flat_path(flat) %>
+    </div>
+    <h2 class="card-trip-pricing">€<%= flat.price %>/night</h2>
+  </div>
+</div>
+<% end %>
