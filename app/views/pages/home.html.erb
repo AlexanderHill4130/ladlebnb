@@ -2,13 +2,23 @@
   <div class="banner-text">
     <h1>LadleBnb</h1>
     <p>Find your perfect place to stay</p>
+    <div class="wrap">
+   <div class="search">
+      <input type="text" class="searchTerm" placeholder="Find your perfect place...">
+      <%= link_to "Discover", flats_path, class: "btn btn-outline-primary btn-sm my-0 my-sm-0" %>
+   <!--    <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+     </button> -->
+   </div>
+</div>
   </div>
 </div>
 
-<div class="cards-container">
+<div class="cards-container-home">
 <% @flats.each do |flat| %>
 <div class="card-trip">
-  <img src="https://picsum.photos/id/299/5498/3615">
+  <%= cl_image_tag(flat.photo,
+      width: 400, height: 300, crop: :fill) %>
   <div class="card-trip-infos">
     <div>
       <h2><%= flat.title %></h2>
