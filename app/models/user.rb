@@ -17,4 +17,14 @@ class User < ApplicationRecord
       # user.skip_confirmation!
     end
   end
+
+  def get_user_received_bookings
+    received_bookings = []
+    current_user.flats.each do |flat|
+      flat.bookings.each do |booking|
+        received_bookings << booking
+      end
+    end
+    received_bookings
+  end
 end

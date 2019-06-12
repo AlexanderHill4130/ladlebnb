@@ -22,9 +22,14 @@ class BookingsController < ApplicationController
     @reviews = @booking.reviews
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.status = params["subaction"]
+  end
+
   private
 
   def flat_params
-    params.require(:booking).permit(:check_in, :check_out, :guests_nr)
+    params.require(:booking).permit(:check_in, :check_out, :guests_nr, :status)
   end
 end

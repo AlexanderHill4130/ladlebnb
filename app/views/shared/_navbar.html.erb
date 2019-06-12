@@ -1,6 +1,7 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "logo.png" %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag "logo1.png" %>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,7 +11,7 @@
 <!-- search box stuff -->
 <nav class="navbar navbar-light mr-auto pl-0">
   <form class="form-inline ">
-    <input class="form-control-sm mr-sm-2" type="search" placeholder="Location" aria-label="Location">
+    <input class="form-control-sm mr-sm-2" type="search" placeholder="Location" aria-label="Location" id="location-search">
 
       <%= simple_form_for :search, method: "get" do |f| %>
       <%= f.input :check_in, label: false, placeholder: 'Check in', as: :string, required: false, input_html: {class: "datepicker form-control-sm", style: "width: 120px; margin: 0 8px;"} %>
@@ -45,7 +46,7 @@
           <%= link_to "Become a Host", new_flat_path, class: "nav-link" %>
         </li>
         <li class="nav-item mr-2">
-          <%= link_to "Dashboard", "#", class: "nav-link" %>
+          <%= link_to "Dashboard", dashboards_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown mr-3 pr-2">
           <%= image_tag "blank.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

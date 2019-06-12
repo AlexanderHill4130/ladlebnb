@@ -1,0 +1,2 @@
+class Dashoard < ApplicationRecord
+end
