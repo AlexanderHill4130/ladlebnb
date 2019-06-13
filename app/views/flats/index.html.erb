@@ -1,5 +1,59 @@
-<h5>Search Results</h5>
+<div class="navbar-whole">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon py-0 my-0">
 
+<div class="logosearch">
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag "logo1.png" %>
+    <% end %>
+    <input type="text" class="searchTerm" placeholder="Keep looking...">
+      <%= link_to flats_path, :action => 'go' do %>
+      <div class="search">
+        <button type="submit" class="searchButton" ata-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+      <% end %>
+    </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  </form>
+</nav>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+        <li class="nav-item active">
+          <%= link_to "Become a Host", new_flat_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item mr-2">
+          <%= link_to "Dashboard", dashboards_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item dropdown mr-3 pr-2">
+          <%= image_tag "blank.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Home", root_path, class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item btn btn-ladle ">
+          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link-white" %>
+        </li>
+        <li class="nav-item btn btn-ladle ">
+          <%= link_to "Login", new_user_session_path, class: "nav-link-white" %>
+        </li >
+      <% end %>
+    </ul>
+  </div>
+  </div>
+</div>
+
+<div class="content">
 <div class="cards-container">
 <% @flats.each do |flat| %>
 <div class="card-trip">
@@ -23,4 +77,5 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+</div>
 </div>
