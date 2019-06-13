@@ -1,9 +1,8 @@
-.cards-container {
-  width: 80%;
-}
 
-.cards-container-home {
-  width: 100%;
+// INDEX PAGE CARDS_____________________________________________________________
+
+.cards-container {
+  width: 60%;
 }
 
 .card-trip {
@@ -41,6 +40,56 @@
 
 
 .card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  width: 100%;
+}
+
+
+// HOME PAGE CARDS______________________________________________________________
+
+.cards-container-home {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-trip-home {
+  margin: 10px;
+  overflow: hidden;
+  background: white;
+  width: 400px;
+  border-radius: 15px;
+}
+
+.card-trip-home:hover {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-trip-home > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip-home h2 {
+  font-style: italic;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip-home p {
+  font-style: italic;
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip-home .card-trip-infos-home {
   padding: 16px;
   display: flex;
   justify-content: space-between;
