@@ -2,15 +2,18 @@
 // INDEX PAGE CARDS_____________________________________________________________
 
 .cards-container {
-  width: 60%;
+  align-items: center;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  padding: 16px;
 }
 
 .card-trip {
-  float: left;
   margin: 10px;
   overflow: hidden;
   background: white;
-  width: 400px;
   border-radius: 15px;
 }
 
