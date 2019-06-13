@@ -24,7 +24,12 @@ class FlatsController < ApplicationController
     @flat = Flat.find(params[:id])
     @booking = Booking.new
     @review = Review.new
-    @reviews = Review.all
+    @reviews = @flat.reviews
+    @sum = 0
+    @reviews.each do |review|
+      @sum += review.rating
+    end
+    @average = @sum/@reviews.size unless @reviews.empty?
   end
 
   def create
