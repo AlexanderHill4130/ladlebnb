@@ -1,3 +1,10 @@
+.navbar-whole {
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
