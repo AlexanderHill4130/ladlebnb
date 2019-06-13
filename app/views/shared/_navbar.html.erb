@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon py-0 my-0">
 
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "logo1.png" %>
@@ -8,37 +8,11 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-<!-- search box stuff -->
-<nav class="navbar navbar-light bg-white mr-auto pl-0">
-  <form class="form-inline ">
-    <input class="form-control-sm mr-sm-2" type="search" placeholder="Location" aria-label="Location" id="location-search">
-
-      <%= simple_form_for :search, method: "get" do |f| %>
-      <%= f.input :check_in, label: false, placeholder: 'Check in', as: :string, required: false, input_html: {class: "datepicker form-control-sm", style: "width: 120px; margin: 0 8px;"} %>
-      <%= f.input :check_out, label: false,  placeholder: 'Check out', as: :string, required: false, input_html: {class: "datepicker form-control-sm", style: 'width: 120px; margin: 0 8px;'} %>
-
-   <!--    <%= f.button :submit, "Go", class: "btn btn-primary" %> -->
-    <% end %>
-
-
-    <select name="guests" id="select-guests" class="form-control-sm input-sm" style="margin: 0 20px 0 8px; width: 120px;">
-      <option value="1">1 person</option>
-      <option value="2">2 people</option>
-      <option value="3">3 people</option>
-      <option value="4">4 people</option>
-      <option value="5">5 people</option>
-      <option value="6">6 people</option>
-      <option value="7">7 people</option>
-      <option value="8">8 people</option>
-      </select>
-
-  <%= link_to "Search", flats_path, class: "btn btn-outline-success btn-sm my-2 my-sm-0" %>
-
 
   </form>
 </nav>
 
-<!--  -->
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
@@ -56,9 +30,12 @@
           </div>
         </li>
       <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <li class="nav-item btn ladle-btn ">
+          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link  text-white" %>
         </li>
+        <li class="nav-item btn ladle-btn ">
+          <%= link_to "Login", new_user_session_path, class: "nav-link text-white" %>
+        </li >
       <% end %>
     </ul>
   </div>
