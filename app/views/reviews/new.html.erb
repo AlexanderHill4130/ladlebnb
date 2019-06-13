@@ -1,7 +1,14 @@
-
+<div>
+<%= @booking.flat.photo %>
+</div>
+<div>
+<h1><em><strong><%= @booking.flat.title.upcase %></strong></em></h1>
+</div>
+<div>
 <h3> create a review</h3>
 <%= simple_form_for [@booking, @review], url: booking_reviews_path, method: :post do |f| %>
   <%= f.input :rating, collection: 0..5 %>
   <%= f.input :content %>
   <%= f.submit class: "btn btn-primary"%>
 <% end %>
+</div>

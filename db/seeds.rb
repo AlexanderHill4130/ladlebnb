@@ -12,6 +12,19 @@ Flat.destroy_all
 User.destroy_all
 
 puts 'Creating 10 fake users...'
+user_host = User.new(
+  first_name: host,
+  last_name: host,
+  email: host@example.com,
+  password: "123456")
+user_host.save!
+user_user = User.new(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: user@example.com,
+  password: "123456")
+user_user.save!
+
 10.times do
   user = User.new(
     first_name: Faker::Name.first_name,
