@@ -6,25 +6,31 @@
 
 <% @user_bookings.each do |booking| %>
 <div class="booking-specs m-5">
+<p><strong><em><%= booking.flat.title.upcase %></em></strong>
 <p><strong> Check-in: </strong><%= booking.check_in %>
 - <strong> Check-out: </strong><%= booking.check_out %></p>
 <p> <strong> Status: </strong><%= booking.status %></p>
-<%#= button_to "Confirm", booking_path(booking), method: :patch, form: { :status => "confirmed" } %>
+<% if booking.status == "Confirmed" %>
+<%= link_to "Create a Review", new_booking_review_path(booking)  %>
+<% end %>
+<% if booking.flat.user == current_user && booking.status == "pending" %>
 <tr>
   <td>
-<%= form_for(booking, :method => :PATCH, data: { confirm: "You sure?"}) do |fa| %>
-  <%= fa.hidden_field :status, :value => "pending"%>
+    <%= form_for(booking, :method => :PATCH, data: { confirm: "You sure?"}) do |fa| %>
+    <%= fa.hidden_field :status, :value => "pending"%>
   </td>
   <td>
-  <%= fa.submit "Approve", class: "btn btn-large btn-success", onclick: "booking_status.value = 'Confirmed'" %>
+    <%= fa.submit "Approve", class: "btn btn-large btn-success", onclick: "booking_status.value = 'Confirmed'" %>
   </td>
   <td>
-  <%= fa.submit "Reject", class: "btn btn-large btn-danger", onclick: "booking_status.value = 'Rejected'" %>
+    <%= fa.submit "Reject", class: "btn btn-large btn-danger", onclick: "booking_status.value = 'Rejected'" %>
   </td>
 <% end %>
+
 </tr>
 <%#= button_to 'Confirm', {controller: "bookings", action: "update", status: "confirmed"} , method: :patch  %>
 <p>--------------------</p>
+<% end %>
 </div>
 <% end %>
 </div>
