@@ -7,12 +7,17 @@ class BookingsController < ApplicationController
   def create
     @flat = Flat.find(params[:flat_id])
     @booking = Booking.new(flat_params)
-    @booking.flat = @flat
-    @booking.user = current_user
-    if @booking.save
-      redirect_to booking_path(@booking)
+    if @flat.user == current_user
+      redirect_to flat_path(@flat)
     else
-      render :new
+
+      @booking.flat = @flat
+      @booking.user = current_user
+      if @booking.save
+        redirect_to booking_path(@booking)
+      else
+        render :new
+      end
     end
   end
 
@@ -24,7 +29,8 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.status = params["subaction"]
+    @booking.status = params["booking"]["status"]
+    @booking.save
   end
 
   private
