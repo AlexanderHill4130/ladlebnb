@@ -6,12 +6,13 @@
 
 <% @user_bookings.each do |booking| %>
 <div class="booking-specs m-5">
-<p><strong><em><%= booking.flat.title.upcase %></em></strong>
+<p class="bg-info"><strong><em><%= booking.flat.title.upcase %></em></strong>
 <p><strong> Check-in: </strong><%= booking.check_in %>
 - <strong> Check-out: </strong><%= booking.check_out %></p>
 <p> <strong> Status: </strong><%= booking.status %></p>
 <% if booking.status == "Confirmed" %>
-<%= link_to "Create a Review", new_booking_review_path(booking)  %>
+<button class="btn btn-outline-primary "> <%= link_to "Create a Review", new_booking_review_path(booking)  %>
+</button>
 <% end %>
 <% if booking.flat.user == current_user && booking.status == "pending" %>
 <tr>
