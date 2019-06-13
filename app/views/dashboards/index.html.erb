@@ -10,10 +10,19 @@
 - <strong> Check-out: </strong><%= booking.check_out %></p>
 <p> <strong> Status: </strong><%= booking.status %></p>
 <%#= button_to "Confirm", booking_path(booking), method: :patch, form: { :status => "confirmed" } %>
-<%= simple_form_for(booking) do |f| %>
-  <%= f.button :submit, name: "status", value: "confirm" %>
-  <%= f.button :submit, name: "status", value: "deny" %>
+<tr>
+  <td>
+<%= form_for(booking, :method => :PATCH, data: { confirm: "You sure?"}) do |fa| %>
+  <%= fa.hidden_field :status, :value => "pending"%>
+  </td>
+  <td>
+  <%= fa.submit "Approve", class: "btn btn-large btn-success", onclick: "booking_status.value = 'Confirmed'" %>
+  </td>
+  <td>
+  <%= fa.submit "Reject", class: "btn btn-large btn-danger", onclick: "booking_status.value = 'Rejected'" %>
+  </td>
 <% end %>
+</tr>
 <%#= button_to 'Confirm', {controller: "bookings", action: "update", status: "confirmed"} , method: :patch  %>
 <p>--------------------</p>
 </div>

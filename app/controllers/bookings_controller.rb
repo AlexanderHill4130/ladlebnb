@@ -24,7 +24,8 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.status = params["subaction"]
+    @booking.status = params["booking"]["status"]
+    @booking.save
   end
 
   private
