@@ -1,3 +1,10 @@
+.navbar-whole {
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   background-color: transparent;
@@ -5,12 +12,33 @@
   padding: 0;
 }
 
-.navbar-lewagon .navbar-collapse {
+  .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 90px;
+}
+
+.navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.nav-link-white {
+  color: white;
+  padding-top: 7px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.nav-link-white:hover {
+  text-decoration: none;
+  color: black;
+}
+
+li.nav-item.btn.btn-ladle {
+  padding-top: 6px;
 }
 
 

@@ -5,27 +5,49 @@
     <div class="wrap">
    <div class="search">
       <input type="text" class="searchTerm" placeholder="Find your perfect place...">
-      <%= link_to "Discover", flats_path, class: "btn btn-outline-primary btn-sm my-0 my-sm-0" %>
-   <!--    <button type="submit" class="searchButton">
-        <i class="fa fa-search"></i>
-     </button> -->
-   </div>
-</div>
+      <%= link_to flats_path, :action => 'go' do %>
+      <div class="search">
+        <button type="submit" class="searchButton">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+      <% end %>
+    </div>
+    </div>
   </div>
 </div>
 
+<div class="icons-container">
+  <div class="icons">
+    <div class="icon">
+      <h2>Find your place</h2>
+      <i class="fas fa-search-location fa-4x"></i>
+    </div>
+    <div class="icon">
+       <h2>Rent your home</h2>
+      <i class="fas fa-home fa-4x"></i>
+    </div>
+    <div class="icon">
+      <h2>Enjoy your stay</h2>
+      <i class="fas fa-heart fa-4x"></i>
+    </div>
+  </div>
+</div>
+
+
+
 <div class="cards-container-home">
-<% @flats.each do |flat| %>
-<div class="card-trip">
+<% @flats[0..3].each do |flat| %>
+<div class="card-trip-home">
   <%= cl_image_tag(flat.photo,
       width: 400, height: 300, crop: :fill) %>
-  <div class="card-trip-infos">
+  <div class="card-trip-infos-home">
     <div>
       <h2><%= flat.title %></h2>
       <p><%= flat.address %></p>
       <%= link_to "View Details", flat_path(flat) %>
     </div>
-    <h2 class="card-trip-pricing">€<%= flat.price %>/night</h2>
+    <h2 class="card-trip-pricing-home">€<%= flat.price %>/night</h2>
   </div>
 </div>
 <% end %>
@@ -34,3 +56,7 @@
 <p>
   <span id="banner-typed-text"></span>
 </p>
+<div class="footer">
+      <p>LadleBnB<%= image_tag "logo1.png", :size => "90x60" %>©Le Wagon</p>
+      </div>
+    </div>
