@@ -23,17 +23,18 @@
   padding-bottom: 0;
 }
 
-.ladle-btn {
-  background-color: $ladle ;
-  padding: 0;
-  margin-right: 13px;
-  margin-left: 5px;
-  width: 77px;
-  height: 40px;
-  border-radius: 8px;
+.nav-link-white {
+  color: white;
+  padding-top: 7px;
+  text-decoration: none;
+  text-align: center;
 }
 
-.ladle-btn:hover {
-  background-color: #FFB6C1;
-  border: 1px solid $ladle;
+.nav-link-white:hover {
+  text-decoration: none;
+  color: black;
+}
+
+li.nav-item.btn.btn-ladle {
+  padding-top: 6px;
 }
