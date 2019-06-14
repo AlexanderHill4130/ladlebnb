@@ -4,10 +4,9 @@
 
   <h1 class="text-center">Welcome <%= current_user.first_name%>!</h1>
   <h3 class="text-center pb-3">Here you can find your bookings </h3>
-
-  <% @user_bookings.each do |booking| %>
-
+<% if current_user.host? == false %>
   <div class="row">
+    <% @user_bookings.each do |booking| %>
     <div class="col-xs-12 col-sm-10 offset-sm-1">
 
       <div class="card-product mb-2">
@@ -17,18 +16,45 @@
           <h2 ><strong><em><%= booking.flat.title.upcase %></em></strong></h2>
           <p><strong> Check-in: </strong><%= booking.check_in %>
         - <strong> Check-out: </strong><%= booking.check_out %></p>
+          <p><strong>Guests: </strong><%= booking.guests_nr %>
+          <strong style="margin-left: 8px;">    € </strong><%= booking.flat.price %></p>
+          <p><strong> Status: </strong><%= booking.status %></p>
+
+          <% if booking.status == "Confirmed" %>
+
+          <button class="btn btn-outline-primary "> <%= link_to "Create a Review", new_booking_review_path(booking)  %>
+          </button>
+
+          <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+<% else %>
+<div class="row">
+    <% @received_bookings.each do |booking| %>
+    <div class="col-xs-12 col-sm-10 offset-sm-1 pt-3">
+
+      <div class="card-product mb-2">
+        <%= cl_image_tag(booking.flat.photo,
+          width: 100, height: 90, crop: :fill, class: "border ")%>
+        <div class="card-product-infos">
+          <h2 ><strong><em><%= booking.flat.title.upcase %></em></strong></h2>
+          <p><strong> Check-in: </strong><%= booking.check_in %>
+        - <strong> Check-out: </strong><%= booking.check_out %></p>
+          <p><strong>Guests: </strong><%= booking.guests_nr %>
+          <strong style="margin-left: 8px;">    € </strong><%= booking.flat.price %></p>
+          <p><strong> Status: </strong><%= booking.status %></p>
+
+          <% if booking.status == "Confirmed" %>
+          <button class="btn btn-outline-primary "> <%= link_to "Create a Review", new_booking_review_path(booking)  %>
+          </button>
+          <% end %>
 
 
-            <p><strong>Guests: </strong><%= booking.guests_nr %>
-            <strong style="margin-left: 8px;">    € </strong><%= booking.flat.price %></p>
-            <p> <strong> Status: </strong><%= booking.status %></p>
-            <% if booking.status == "Confirmed" %>
-            <button class="btn btn-outline-primary "> <%= link_to "Create a Review", new_booking_review_path(booking)  %>
-            </button>
-            <% end %>
 
-
-          <% if booking.flat.user == current_user && booking.status == "pending" %>
+          <% if booking.status == "pending" %>
           <tr>
           <td>
           <%= form_for(booking, :method => :PATCH, data: { confirm: "You sure?"}) do |fa| %>
@@ -41,20 +67,18 @@
           <%= fa.submit "Reject", class: "btn btn-large btn-danger", onclick: "booking_status.value = 'Rejected'" %>
         </td>
       <% end %>
-
       </tr>
-      <%#= button_to 'Confirm', {controller: "bookings", action: "update", status: "confirmed"} , method: :patch  %>
-      <p>--------------------</p>
       <% end %>
       </div>
     </div>
   </div>
-  </div>
+<% end %>
+<% end %>
+</div>
+</div>
 
-  </div>
-    <% end %>
 
     </div>
-  </div>
+
 
 

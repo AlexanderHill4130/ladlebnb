@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-  root to: 'pages#home'
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
+
+  get '/new_host', to: 'pages#new_host', as: 'new_host'
 
   resources :flats, only: [:home, :index, :show, :create, :new] do
     resources :bookings, except: [:show, :update]
