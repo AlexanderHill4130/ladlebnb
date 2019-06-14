@@ -1,14 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <%= link_to "⇦", flats_path, class: "nav-item btn btn-ladle pt-2 mb-3 mt-3" %>
-      <div class="show-banner">
+          <div class="show-banner mt-3">
         <%= cl_image_tag(@flat.photo,
       width: 520, height: 400, crop: :fill) %>
       </div>
     </div>
     <div class="col">
-      <div class="flat_description">
+      <div class="flat_description mt-5">
       <h1><%= @flat.title %></h1>
       <h1><%= @average %></h1>
        <div class="rating">
@@ -48,6 +47,9 @@
       </div>
     </div>
   </div>
+   <div>
+      <%= link_to "⇦ ", flats_path, class: "nav-item btn btn-ladle pt-2 mb-3 mt-3" %>
+    </div>
 </div>
 
 
