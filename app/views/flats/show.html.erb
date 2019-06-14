@@ -36,15 +36,7 @@
     </div>
     <div class="col">
       <div class="booking-form">
-        <h2>New Booking</h2>
-          <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-          <%= simple_form_for [@flat, @booking], url: flat_bookings_path(@flat), method: :post do |f| %>
-             <%= f.input :check_in, as: :string, required: false, input_html: {class: "datepicker"} %>
-             <%= f.input :check_out, as: :string, required: false, input_html: {class: "datepicker"} %>
-             <%= f.input :guests_nr %>
-            <%= f.button :submit, "Book", class: "btn btn-ladle" %>
-            <% end %>
-          </div>
+      <%= render 'bookings/new_booking' %>
       </div>
     </div>
   </div>
