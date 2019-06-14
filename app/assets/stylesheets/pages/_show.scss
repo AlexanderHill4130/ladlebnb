@@ -11,10 +11,39 @@
   height: 400px
 }
 
-.booking-title {
+.booking-form h2 {
+  color: white;
+  font-weight: bolder;
+  background-color: $ladle;
+  padding: 10px;
+  border-radius: 10px;
 }
 
+.booking-form {
+  border: 2px solid $ladle;
+  padding: 10px;
+  border-radius: 10px;
+}
 
-.reviews-list {
-  border: 5px black;
+.reviews h2 {
+  color: white;
+  font-weight: bolder;
+  background-color: $ladle;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.reviews {
+  height: 388px;
+  border: 2px solid $ladle;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.review {
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }

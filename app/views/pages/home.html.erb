@@ -50,7 +50,7 @@
         <div>
           <h2><%= flat.title %></h2>
           <p><%= flat.address %></p>
-          <%= link_to "View Details", flat_path(flat) %>
+          <%= link_to "View", flat_path(flat), class: "nav-item btn btn-ladle pt-2 mb-3 mt-3"  %>
         </div>
         <h2 class="card-trip-pricing-home">€<%= flat.price %>/night</h2>
       </div>
