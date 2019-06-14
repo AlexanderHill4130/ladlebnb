@@ -1,13 +1,19 @@
-<h1>Create a new flat</h1>
 
-<%= simple_form_for @flat, url: flats_path(@flat), method: :post do |f|%>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :address %>
-  <%= f.input :price %>
-  <%= f.input :guests_nr %>
+<%= simple_form_for @flat, html: { class: "new_form"}, url: flats_path(@flat), method: :post do |f|%>
+
+<div class="form-title">
+  <h1>Create a new flat</h1>
+</div>
+
+  <%= f.input :title, label: "Title", label_html: {class: "label_form"} %>
+  <%= f.input :description, label: "Please describe your flat", label_html: {class: "label_form"}  %>
+  <%= f.input :address, label: "Where is it located?", label_html: {class: "label_form"}  %>
+  <%= f.input :price, label: "How much will it cost?", label_html: {class: "label_form"}  %>
+  <%= f.input :guests_nr, label: "How many guests?", label_html: {class: "label_form"}  %>
  <!-- #insert photo -->
-  <%= f.input :photo %>
+  <%= f.input :photo, label: "Feel free to add some pictures", label_html: {class: "label_form"}  %>
   <%= f.input :photo_cache, as: :hidden %>
-  <%= f.submit class: "btn btn-primary"%>
+  <%= f.submit class: "btn btn-ladle mr-2 ml-2"%>
+
 <% end %>
+</div>
