@@ -4,6 +4,9 @@
 <%= link_to root_path, class: "navbar-brand" do %>
   <%= image_tag "logo1.png" %>
 <% end %>
+<% if params[:controller] + params[:action] == 'pageshome' %>
+<h2 id="logotitle"><strong> LadleBnB </strong></h2>
+<% end %>
 
 <% if params[:controller] + params[:action] == 'flatsindex' %>
 <div class="logosearch">
