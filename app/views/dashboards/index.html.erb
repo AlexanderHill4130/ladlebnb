@@ -1,35 +1,36 @@
-
-
-<% @user_bookings.each do |booking| %>
-
 <div class="container">
+
+  <div class="card-sub-container">
+
   <h1 class="text-center">Welcome <%= current_user.first_name%>!</h1>
   <h3 class="text-center pb-3">Here you can find your bookings </h3>
+
+  <% @user_bookings.each do |booking| %>
 
   <div class="row">
     <div class="col-xs-12 col-sm-10 offset-sm-1">
 
-      <div class="card-product">
+      <div class="card-product mb-2">
         <%= cl_image_tag(booking.flat.photo,
-     width: 100, height: 90, crop: :fill, class: "border ")%>
+          width: 100, height: 90, crop: :fill, class: "border ")%>
         <div class="card-product-infos">
-        <h2 ><strong><em><%= booking.flat.title.upcase %></em></strong></h2>
-        <p><strong> Check-in: </strong><%= booking.check_in %>
+          <h2 ><strong><em><%= booking.flat.title.upcase %></em></strong></h2>
+          <p><strong> Check-in: </strong><%= booking.check_in %>
         - <strong> Check-out: </strong><%= booking.check_out %></p>
 
-      <div>
-        <p><strong>Guests: </strong><%= booking.guests_nr %>
-        <strong style="margin-left: 8px;">    € </strong><%= booking.flat.price %></p>
-        <p> <strong> Status: </strong><%= booking.status %></p>
-        <% if booking.status == "Confirmed" %>
-        <button class="btn btn-outline-primary "> <%= link_to "Create a Review", new_booking_review_path(booking)  %>
-        </button>
-      <% end %>
-      </div>
 
-      <% if booking.flat.user == current_user && booking.status == "pending" %>
-      <tr>
-        <td>
+            <p><strong>Guests: </strong><%= booking.guests_nr %>
+            <strong style="margin-left: 8px;">    € </strong><%= booking.flat.price %></p>
+            <p> <strong> Status: </strong><%= booking.status %></p>
+            <% if booking.status == "Confirmed" %>
+            <button class="btn btn-outline-primary "> <%= link_to "Create a Review", new_booking_review_path(booking)  %>
+            </button>
+            <% end %>
+
+
+          <% if booking.flat.user == current_user && booking.status == "pending" %>
+          <tr>
+          <td>
           <%= form_for(booking, :method => :PATCH, data: { confirm: "You sure?"}) do |fa| %>
           <%= fa.hidden_field :status, :value => "pending"%>
         </td>
@@ -49,7 +50,11 @@
     </div>
   </div>
   </div>
+
   </div>
+    <% end %>
+
+    </div>
   </div>
 
-  <% end %>
+
