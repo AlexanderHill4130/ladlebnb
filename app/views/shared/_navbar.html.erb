@@ -31,12 +31,16 @@
           </div>
         </li>
       <% else %>
+      <%= link_to new_user_registration_path, class: "nav-link-white" do %>
         <li class="nav-item btn btn-ladle ">
-          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link-white" %>
+          <p>Sign up</p>
         </li>
+        <% end %>
+        <%= link_to user_session_path, class: "nav-link-white" do %>
         <li class="nav-item btn btn-ladle ">
-          <%= link_to "Login", new_user_session_path, class: "nav-link-white" %>
+          <p>Login</p>
         </li >
+        <% end %>
       <% end %>
     </ul>
   </div>
