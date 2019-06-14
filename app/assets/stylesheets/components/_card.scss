@@ -55,15 +55,17 @@
 // HOME PAGE CARDS______________________________________________________________
 
 .cards-container-home {
-  display: flex;
-  justify-content: space-around;
+  align-items: center;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-bottom: 10px;
 }
 
 .card-trip-home {
   margin: 10px;
   overflow: hidden;
   background: white;
-  width: 400px;
   border-radius: 15px;
 }
 
