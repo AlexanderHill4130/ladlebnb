@@ -10,8 +10,15 @@ class FlatsController < ApplicationController
   end
 
   def index
-    @flats = Flat.where.not(latitude: nil, longitude: nil)
-
+    if params[:query].present?
+      @flats = Flat.where("title ILIKE ?", "%#{params[:query]}%")
+      unless @flats.present?
+        @flats = Flat.where.not(latitude: nil, longitude: nil)
+        flash[:notice] = "Our search engine did not found any flats, try again!"
+      end
+    else
+      @flats = Flat.where.not(latitude: nil, longitude: nil)
+    end
     @markers = @flats.map do |flat|
       {
         lat: flat.latitude,

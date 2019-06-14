@@ -4,14 +4,19 @@
     <p>Find your perfect place to stay</p>
     <div class="wrap">
    <div class="search">
-      <input type="text" class="searchTerm" placeholder="Find your perfect place...">
-      <%= link_to flats_path, :action => 'go' do %>
+
+    <%= form_tag flats_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "searchTerm",
+      placeholder: "Find your perfect place"
+      %>
       <div class="search">
         <button type="submit" class="searchButton">
           <i class="fa fa-search"></i>
         </button>
       </div>
-      <% end %>
+    <% end %>
     </div>
     </div>
   </div>
