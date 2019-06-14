@@ -1,37 +1,55 @@
-<div class="container display-flex justify-content-center w-100">
-  <div class="welcome m-5">
-<h1>Welcome <%= current_user.first_name%>!</h1>
-<h3>Here you can find your bookings </h3>
-</div>
+
 
 <% @user_bookings.each do |booking| %>
-<div class="booking-specs m-5">
-<p class="bg-info"><strong><em><%= booking.flat.title.upcase %></em></strong>
-<p><strong> Check-in: </strong><%= booking.check_in %>
-- <strong> Check-out: </strong><%= booking.check_out %></p>
-<p> <strong> Status: </strong><%= booking.status %></p>
-<% if booking.status == "Confirmed" %>
-<button class="btn btn-outline-primary "> <%= link_to "Create a Review", new_booking_review_path(booking)  %>
-</button>
-<% end %>
-<% if booking.flat.user == current_user && booking.status == "pending" %>
-<tr>
-  <td>
-    <%= form_for(booking, :method => :PATCH, data: { confirm: "You sure?"}) do |fa| %>
-    <%= fa.hidden_field :status, :value => "pending"%>
-  </td>
-  <td>
-    <%= fa.submit "Approve", class: "btn btn-large btn-success", onclick: "booking_status.value = 'Confirmed'" %>
-  </td>
-  <td>
-    <%= fa.submit "Reject", class: "btn btn-large btn-danger", onclick: "booking_status.value = 'Rejected'" %>
-  </td>
-<% end %>
 
-</tr>
-<%#= button_to 'Confirm', {controller: "bookings", action: "update", status: "confirmed"} , method: :patch  %>
-<p>--------------------</p>
-<% end %>
-</div>
-<% end %>
-</div>
+<div class="container">
+  <h1 class="text-center">Welcome <%= current_user.first_name%>!</h1>
+  <h3 class="text-center pb-3">Here you can find your bookings </h3>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 offset-sm-1">
+
+      <div class="card-product">
+        <%= cl_image_tag(booking.flat.photo,
+     width: 100, height: 90, crop: :fill, class: "border ")%>
+        <div class="card-product-infos">
+        <h2 ><strong><em><%= booking.flat.title.upcase %></em></strong></h2>
+        <p><strong> Check-in: </strong><%= booking.check_in %>
+        - <strong> Check-out: </strong><%= booking.check_out %></p>
+
+      <div>
+        <p><strong>Guests: </strong><%= booking.guests_nr %>
+        <strong style="margin-left: 8px;">    € </strong><%= booking.flat.price %></p>
+        <p> <strong> Status: </strong><%= booking.status %></p>
+        <% if booking.status == "Confirmed" %>
+        <button class="btn btn-outline-primary "> <%= link_to "Create a Review", new_booking_review_path(booking)  %>
+        </button>
+      <% end %>
+      </div>
+
+      <% if booking.flat.user == current_user && booking.status == "pending" %>
+      <tr>
+        <td>
+          <%= form_for(booking, :method => :PATCH, data: { confirm: "You sure?"}) do |fa| %>
+          <%= fa.hidden_field :status, :value => "pending"%>
+        </td>
+        <td>
+          <%= fa.submit "Approve", class: "btn btn-large btn-success", onclick: "booking_status.value = 'Confirmed'" %>
+        </td>
+        <td>
+          <%= fa.submit "Reject", class: "btn btn-large btn-danger", onclick: "booking_status.value = 'Rejected'" %>
+        </td>
+      <% end %>
+
+      </tr>
+      <%#= button_to 'Confirm', {controller: "bookings", action: "update", status: "confirmed"} , method: :patch  %>
+      <p>--------------------</p>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <% end %>
