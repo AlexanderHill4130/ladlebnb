@@ -1,0 +1,19 @@
+.row-review {
+  margin-top: 50px;
+}
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+   weight: 80px;
+}
+
+.booking-title {
+  background-color: $ladle;
+  padding: 10px;
+  font-weight: bolder;
+}

@@ -1,31 +1,51 @@
-
-
-<div class="home-banner">
-  <h1></h1>
-
-</div>
-<h1><%= @flat.title %></h1>
-<h3><%= @flat.description %></h3>
-
-<%= link_to "Back to all flats", flats_path %>
-
-
-<h2 class="bg-info">New Booking</h2>
-
 <div class="container">
-  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-  <%= simple_form_for [@flat, @booking], url: flat_bookings_path(@flat), method: :post do |f| %>
-     <%= f.input :check_in, as: :string, required: false, input_html: {class: "datepicker"} %>
-     <%= f.input :check_out, as: :string, required: false, input_html: {class: "datepicker"} %>
-     <%= f.input :guests_nr %>
-    <%= f.button :submit, class: "btn btn-primary" %>
-    <% end %>
+  <div class="row">
+    <div class="col">
+      <div class="home-banner">
+      </div>
+    </div>
+    <div class="col">
+      <div class="flat_description">
+      <h1><%= @flat.title %></h1>
+      <h3><%= @flat.description %></h3>
+      <h3>number of guests: <%= @flat.guests_nr %></h3>
+      <h3><%= @average %></h3>
+      <%= link_to "Back to all flats", flats_path %>
+       <div class="rating">
+        <% if @reviews.any? %>
+          <% average = @reviews.pluck(:rating).sum / @reviews.size %>
+          <span><%= '☆' * average %></span>
+        <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-review">
+    <div class="col">
+      <div class="reviews">
+        <h1 class="bg-info">Reviews</h1>
+        <% @reviews.each do |review| %>
+        <%= review.content %>
+        <%= review.rating %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="booking_form">
+        <h2 class="bg-primary rounded-lg">New Booking</h2>
+          <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+          <%= simple_form_for [@flat, @booking], url: flat_bookings_path(@flat), method: :post do |f| %>
+             <%= f.input :check_in, as: :string, required: false, input_html: {class: "datepicker"} %>
+             <%= f.input :check_out, as: :string, required: false, input_html: {class: "datepicker"} %>
+             <%= f.input :guests_nr %>
+            <%= f.button :submit, class: "btn btn-primary" %>
+            <% end %>
+          </div>
+      </div>
+    </div>
   </div>
 </div>
 
 
-<h1 class="bg-info">Reviews</h1>
-<% @reviews.each do |review| %>
-<%= review.content %>
-<%= review.rating %>
-<% end %>
+
+
