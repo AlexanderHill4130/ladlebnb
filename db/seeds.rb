@@ -26,11 +26,11 @@ puts 'Finished!'
 puts 'Creating 10 fake flats...'
 10.times do
   flat = Flat.new(
-    title:    Faker::Coffee.blend_name,
-    description: Faker::Coffee.notes,
+    title:    Faker::Address.community,
+    description: Faker::Quotes::Shakespeare.romeo_and_juliet_quote,
     address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    latitude: Faker::Address.latitude,
-    longitude: Faker::Address.longitude,
+    latitude: rand(9.0..10),
+    longitude: rand(9.0..10),
     price:  rand(25..50),
     guests_nr: rand(1..4),
     user: User.all.sample
@@ -59,7 +59,7 @@ puts 'Creating 10 fake reviews...'
 10.times do
   review = Review.new(
     rating: rand(0..5),
-    content: Faker::Lorem.sentence,
+    content: Faker::Quote.famous_last_words,
     booking: Booking.all.sample
   )
   review.save!

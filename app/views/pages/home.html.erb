@@ -1,7 +1,6 @@
 <div class="banner">
   <div class="banner-text">
-    <h1>LadleBnB</h1>
-    <p>Find your perfect place to stay</p>
+    <h3 id="maintitle"><strong>Find a perfect place to stay</strong></h3>
     <div class="wrap">
    <div class="search">
 
@@ -9,7 +8,7 @@
       <%= text_field_tag :query,
       params[:query],
       class: "searchTerm",
-      placeholder: "Find your perfect place"
+      placeholder: " Look for amazing places..."
       %>
       <div class="search">
         <button type="submit" class="searchButton">
@@ -59,7 +58,7 @@
 </div>
 
 
-<div class="footer">
-      <p>LadleBnB<%= image_tag "logo1.png", :size => "90x60" %>©Le Wagon</p>
-      </div>
-    </div>
+  <div class="footer">
+    <p><%= image_tag "logo1.png", :size => "90x60" %></p>
+  </div>
+</div>
