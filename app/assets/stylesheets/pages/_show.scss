@@ -4,20 +4,17 @@
 .rating {
   unicode-bidi: bidi-override;
   direction: rtl;
+  color: $ladle;
 }
-.rating > span:hover:before,
-.rating > span:hover ~ span:before {
-   content: "\2605";
-   position: absolute;
-   weight: 80px;
+
+.show-banner{
+  height: 400px
 }
 
 .booking-title {
-  background-color: $ladle;
-  padding: 10px;
-  font-weight: bolder;
 }
 
 
 .reviews-list {
+  border: 5px black;
 }

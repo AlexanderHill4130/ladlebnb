@@ -2,30 +2,32 @@
   <div class="row">
     <div class="col">
       <div class="show-banner">
+        <%= cl_image_tag(@flat.photo,
+      width: 400, height: 300, crop: :fill) %>
       </div>
     </div>
     <div class="col">
       <div class="flat_description">
       <h1><%= @flat.title %></h1>
-      <h3><%= @flat.description %></h3>
-      <h3>number of guests: <%= @flat.guests_nr %></h3>
-      <h3><%= @average %></h3>
-      <%= link_to "Back to all flats", flats_path %>
+      <h1><%= @average %></h1>
        <div class="rating">
         <% if @reviews.any? %>
           <% average = @reviews.pluck(:rating).sum / @reviews.size %>
-          <span><%= '☆' * average %></span>
+          <h1><span><%= '★' * average %></span></h1>
         <% end %>
       </div>
+      <h3><i class="fas fa-user"></i>  <%= @flat.guests_nr %></h3>
       </div>
+      <p><%= @flat.description %></p>
     </div>
   </div>
+  <%= link_to "Back to Search Results", flats_path %>
   <div class="row row-review">
     <div class="col">
       <div class="reviews">
-        <h1 class="bg-info">Reviews</h1>
+        <h1>Reviews</h1>
         <% @reviews.each do |review| %>
-        <ul class="reviews-list">
+        <ul style="list-style: none;">
         <li>Rating: <%= review.rating %>/5</li>
         <li><%= review.content %></li>
         </ul>
@@ -34,7 +36,7 @@
     </div>
     <div class="col">
       <div class="booking_form">
-        <h2 class="bg-primary rounded-lg">New Booking</h2>
+        <h2>New Booking</h2>
           <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
           <%= simple_form_for [@flat, @booking], url: flat_bookings_path(@flat), method: :post do |f| %>
              <%= f.input :check_in, as: :string, required: false, input_html: {class: "datepicker"} %>
