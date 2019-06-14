@@ -1,5 +1,11 @@
 .alert {
   position: fixed;
   right: 16px;
+  width: 100%;
+  left: 16px;
   z-index: 1000;
+  background-color: $ladle;
+  color: white;
+  border-radius: 4px;
+  text-shadow: 2px 2px 4px #000000;
 }
