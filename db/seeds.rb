@@ -35,8 +35,7 @@ puts 'Creating 10 fake flats...'
     guests_nr: rand(1..4),
     user: User.all.sample
   )
-  flat.remote_photo_url = Faker::Avatar.image
-
+  flat.remote_photo_url = "https://source.unsplash.com/400x300/?house,home"
   flat.save!
 end
 puts 'Finished!'
