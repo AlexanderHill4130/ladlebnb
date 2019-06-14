@@ -1,17 +1,31 @@
 <div class="navbar-whole">
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon py-0 my-0">
 
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "logo1.png" %>
+<%= link_to root_path, class: "navbar-brand" do %>
+  <%= image_tag "logo1.png" %>
+<% end %>
+
+<% if params[:controller] + params[:action] == 'flatsindex' %>
+<div class="logosearch">
+    <%= form_tag flats_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "searchTerm",
+      placeholder: "Find your perfect place"
+      %>
+      <div class="search">
+        <button type="submit" class="searchButton">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
     <% end %>
+</div>
+<% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-
-  </form>
-</nav>
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
