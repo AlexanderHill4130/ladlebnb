@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <div class="home-banner">
+      <div class="show-banner">
       </div>
     </div>
     <div class="col">
@@ -25,8 +25,10 @@
       <div class="reviews">
         <h1 class="bg-info">Reviews</h1>
         <% @reviews.each do |review| %>
-        <%= review.content %>
-        <%= review.rating %>
+        <ul class="reviews-list">
+        <li>Rating: <%= review.rating %>/5</li>
+        <li><%= review.content %></li>
+        </ul>
         <% end %>
       </div>
     </div>
